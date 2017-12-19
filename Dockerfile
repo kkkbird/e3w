@@ -1,8 +1,9 @@
-FROM golang:1.8 as backend
-RUN mkdir -p /go/src/github.com/soyking/e3w
-ADD . /go/src/github.com/soyking/e3w
-WORKDIR /go/src/github.com/soyking/e3w
-RUN CGO_ENABLED=0 go build
+# FROM golang:1.8 as backend
+# RUN mkdir -p /go/src/github.com/soyking/e3w
+# ADD . /go/src/github.com/soyking/e3w
+# ENV GOPATH=/golibs:/go
+# WORKDIR /go/src/github.com/soyking/e3w
+# RUN CGO_ENABLED=0 go build
 
 FROM node:8 as frontend
 RUN mkdir /app
@@ -13,9 +14,11 @@ RUN npm --registry=https://registry.npm.taobao.org \
 --disturl=https://npm.taobao.org/mirrors/node \
 --userconfig=$HOME/.cnpmrc install && npm run publish
 
-FROM alpine:latest
+#FROM alpine:latest
+FROM i.ti-link.com.cn:5000/lky/ubuntu-cn:16.04-1
 RUN mkdir -p /app/static/dist /app/conf
-COPY --from=backend /go/src/github.com/soyking/e3w/e3w /app
+#COPY --from=backend /go/src/github.com/soyking/e3w/e3w /app
+COPY ./e3w /app
 COPY --from=frontend /app/dist /app/static/dist
 COPY conf/config.default.ini /app/conf
 EXPOSE 8080
