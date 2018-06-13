@@ -1,0 +1,7 @@
+[template]
+src = "e3w.conf.tmpl"
+dest = "/app/conf/config.default.ini"
+keys = [
+    "/e3w/etcd/rootkey",
+    "/e3w/etcd/addr",
+]

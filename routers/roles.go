@@ -4,7 +4,7 @@ import (
 	"github.com/coreos/etcd/auth/authpb"
 	"github.com/coreos/etcd/clientv3"
 	"github.com/gin-gonic/gin"
-	"github.com/kkkbird/e3ch"
+	client "github.com/kkkbird/e3ch"
 )
 
 func getRolesHandler(c *gin.Context, client *clientv3.Client) (interface{}, error) {

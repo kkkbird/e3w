@@ -4,15 +4,21 @@ services:
   etcd:
     image: soyking/etcd-goreman:3.2.7
     ports:
-      - "2379:2379"
+    - "2379:2379"
     environment:
-      - CLIENT_ADDR=etcd
+    - CLIENT_ADDR=etcd
+
   e3w:
     build: .
-    image: i.ti-link.com.cn:5001/lky/e3w:v1
+    image: kaiserli/e3w:v1
     volumes:
-      - ./conf/config.default.ini:/app/conf/config.default.ini
+    - ./conf/config.default.ini:/app/conf/config.default.ini
     ports:
-      - "8080:8080"
+    - "8080:8080"
+    environment:
+    - CONFD_ONETIME=-backend env
+    - E3W_ETCD_ROOTKEY=/rootkey
+    - E3W_ETCD_ADDR=etcd:2379
+    - GIN_MODE=release
     depends_on:
       - etcd
