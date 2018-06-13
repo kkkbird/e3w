@@ -2,6 +2,15 @@
 src = "e3w.conf.tmpl"
 dest = "/app/conf/config.default.ini"
 keys = [
+    "/e3w/app/port",
+    "/e3w/app/auth",
+
     "/e3w/etcd/rootkey",
+    "/e3w/etcd/dirvalue",
     "/e3w/etcd/addr",
+    "/e3w/etcd/username",
+    "/e3w/etcd/password",
+    "/e3w/etcd/certfile",
+    "/e3w/etcd/keyfile",
+    "/e3w/etcd/cafile",
 ]

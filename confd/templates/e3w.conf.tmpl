@@ -1,13 +1,13 @@
 [app]
-port=8080
-auth=false
+port={{getv "/e3w/app/port" "8080" }}
+auth={{getv "/e3w/app/auth" "false" }}
 
 [etcd]
 root_key={{getv "/e3w/etcd/rootkey"}}
-dir_value=
+dir_value={{getv "/e3w/etcd/dirvalue" ""}}
 addr={{getv "/e3w/etcd/addr"}}
-username=
-password=
-cert_file=
-key_file=
-ca_file=
+username={{getv "/e3w/etcd/username" ""}}
+password={{getv "/e3w/etcd/password" ""}}
+cert_file={{getv "/e3w/etcd/certfile" ""}}
+key_file={{getv "/e3w/etcd/keyfile" ""}}
+ca_file={{getv "/e3w/etcd/cafile" ""}}

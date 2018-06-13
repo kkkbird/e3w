@@ -16,6 +16,7 @@ RUN npm --registry=https://registry.npm.taobao.org \
 
 #FROM alpine:latest
 FROM kaiserli/confd:v1
+ENV CONFD_ONETIME="-backend env"
 RUN mkdir -p /app/static/dist /app/conf
 #COPY --from=backend /go/src/github.com/soyking/e3w/e3w /app
 COPY ./e3w /app

@@ -1,3 +1,24 @@
+## New feature
+
+Support auto create etcd dir
+
+``` yaml
+- E3W_APP_PORT			# default 8080
+- E3W_APP_AUTH			# default false
+- E3W_ETCD_ROOTKEY		# MUST set, for example /rootkey
+- E3W_ETCD_DIRVALUE		# default empty
+- E3W_ETCD_ADDR			# MUST set, for example etcd:2379
+- E3W_ETCD_USERNAME		# default empty
+- E3W_ETCD_PASSWORD		# default empty
+- E3W_ETCD_CERTFILE		# default empty
+- E3W_ETCD_KEYFILE		# default empty
+- E3W_ETCD_CAFILE		# default empty
+
+- GIN_MODE=release		# set GIN_MODE, default debug
+```
+
+## original readme
+
 e3w
 ===
 

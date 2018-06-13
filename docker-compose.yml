@@ -16,7 +16,7 @@ services:
     ports:
     - "8080:8080"
     environment:
-    - CONFD_ONETIME=-backend env
+
     - E3W_ETCD_ROOTKEY=/rootkey
     - E3W_ETCD_ADDR=etcd:2379
     - GIN_MODE=release
